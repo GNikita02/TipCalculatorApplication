@@ -10,6 +10,7 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.RadioButton
 import androidx.compose.material3.Scaffold
@@ -55,20 +56,32 @@ fun TipScreen(modifier: Modifier = Modifier) {
         modifier = modifier.padding(16.dp),
         verticalArrangement = Arrangement.spacedBy(8.dp)
     ) {
-        Text("Сумма заказа:")
-        OutlinedTextField(
-            value = amountText,
-            onValueChange = { amountText = it },
-            singleLine = true,
-            modifier = Modifier.fillMaxWidth()
-        )
-        Text("Количество блюд:")
-        OutlinedTextField(
-            value = countText,
-            onValueChange = { countText = it },
-            singleLine = true,
-            modifier = Modifier.fillMaxWidth()
-        )
+        Row(
+            modifier = Modifier.fillMaxWidth(),
+            horizontalArrangement = Arrangement.SpaceBetween,
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            Text("Сумма заказа:")
+            OutlinedTextField(
+                value = amountText,
+                onValueChange = { amountText = it },
+                singleLine = true,
+                modifier = Modifier.width(160.dp)
+            )
+        }
+        Row(
+            modifier = Modifier.fillMaxWidth(),
+            horizontalArrangement = Arrangement.SpaceBetween,
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            Text("Количество блюд:")
+            OutlinedTextField(
+                value = countText,
+                onValueChange = { countText = it },
+                singleLine = true,
+                modifier = Modifier.width(160.dp)
+            )
+        }
         Text("Чаевые:")
         Slider(
             value = tipPercent,
@@ -84,12 +97,13 @@ fun TipScreen(modifier: Modifier = Modifier) {
             Text("0")
             Text("25")
         }
-        Text("Скидка:")
+
         Row(
             modifier = Modifier.fillMaxWidth(),
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.SpaceBetween
         ) {
+            Text("Скидка:")
             listOf(3, 5, 7, 10).forEach { percent ->
                 Row(verticalAlignment = Alignment.CenterVertically) {
                     RadioButton(
