@@ -53,3 +53,11 @@ fun checkAmount(text: String): Double? {
     }
     return amount
 }
+
+fun checkCount(text: String): Int? {
+    val count = text.trim().toIntOrNull()
+    if (count == null || count < 0) {
+        return null
+    }
+    return count
+}
