@@ -77,3 +77,7 @@ fun discount(count: Int): Int {
     }
     return 10
 }
+
+fun tip(amount: Double, percent: Int): Double {
+    return amount * percent / 100.0
+}
