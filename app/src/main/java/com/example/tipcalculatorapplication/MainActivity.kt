@@ -61,3 +61,19 @@ fun checkCount(text: String): Int? {
     }
     return count
 }
+
+fun discount(count: Int): Int {
+    if (count <= 0) {
+        return 0
+    }
+    if (count <= 2) {
+        return 3
+    }
+    if (count <= 5) {
+        return 5
+    }
+    if (count <= 10) {
+        return 7
+    }
+    return 10
+}
